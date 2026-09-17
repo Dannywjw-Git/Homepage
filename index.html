@@ -1,254 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- TODO: 改笔名和站点描述 -->
-<title>Danny Wang — Author</title>
-<meta name="description" content="Books by Danny Wang. Stories written in the small hours.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2312161B'/%3E%3Cpath d='M7 8h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-4H7zM25 8h-6a3 3 0 0 0-3 3v14a4 4 0 0 1 4-4h5z' fill='none' stroke='%23C9A35C' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Junwei Wang — Independent Publisher</title>
+<meta name="description" content="Junwei Wang is an independent publisher creating illustration-led coloring books and activity books for adults and seniors, published worldwide through Amazon.">
+<meta name="author" content="Junwei Wang">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23C2410C' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23C2410C'/%3E%3C/svg%3E">
 <style>
   :root{
-    --bg:#12161B;
-    --surface:#1A1F26;
-    --text:#E8E2D4;
-    --muted:#9AA0A8;
-    --gold:#C9A35C;
-    --gold-soft:rgba(201,163,92,.18);
-    --line:rgba(201,163,92,.22);
+    --bg:#FBFBF9;
+    --surface:#FFFFFF;
+    --text:#16181D;
+    --muted:#6B7280;
+    --line:#E7E5E0;
+    --accent:#C2410C;
+    --accent-soft:#FDF2EC;
+    --ink:#1F2937;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
   body{
+    margin:0;
     background:var(--bg);
     color:var(--text);
-    font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-    font-size:18px;line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+    font-size:16px;
+    line-height:1.7;
     -webkit-font-smoothing:antialiased;
   }
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  h1,h2,h3{
+    font-family:ui-serif,Georgia,"Iowan Old Style","Times New Roman","Songti SC",serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.25;
+    margin:0;
+  }
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(194,65,12,.28);}
+  a:hover{border-bottom-color:var(--accent);}
 
-  /* ===== Nav ===== */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:50;
-    background:rgba(18,22,27,.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(232,226,212,.06);
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{font-size:22px;letter-spacing:.04em;color:var(--text);display:inline-flex;align-items:center;min-height:64px}
-  .brand em{color:var(--gold);font-style:normal}
-  .nav-links{display:flex;gap:32px;font-size:17px;color:var(--muted)}
-  .nav-links a{transition:color .2s}
-  .nav-links a:hover{color:var(--gold)}
+  .wrap{max-width:780px; margin:0 auto; padding:0 26px;}
 
-  /* ===== Hero ===== */
-  .hero{
-    position:relative;min-height:100vh;
-    display:flex;align-items:flex-end;
-    overflow:hidden;
+  /* ---------- header ---------- */
+  header{padding:30px 0 0;}
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:11px; font-weight:600; font-size:15px; letter-spacing:.01em;}
+  .brand .mark{
+    width:28px; height:28px; border-radius:50%;
+    background:var(--accent); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:ui-serif,Georgia,serif; font-size:15px; font-weight:600;
   }
-  .hero-bg{
-    position:absolute;inset:0;
-    background:url("assets/hero.jpg") center/cover no-repeat;
-    opacity:.55;
-  }
-  .hero-shade{
-    position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(18,22,27,.55) 0%,rgba(18,22,27,.35) 40%,rgba(18,22,27,.95) 100%);
-  }
-  .hero-content{position:relative;padding-bottom:110px;max-width:780px}
-  .hero .kicker{color:var(--gold);font-size:18px;font-style:italic;margin-bottom:18px}
-  .hero h1{
-    font-size:clamp(56px,9vw,116px);
-    font-weight:500;line-height:.98;letter-spacing:-.01em;
-    margin-bottom:28px;
-  }
-  .hero p{font-size:22px;color:#CFC8B8;max-width:520px;margin-bottom:40px}
-  .btn{
-    display:inline-block;padding:14px 32px;
-    border:1px solid var(--gold);color:var(--gold);
-    font-size:17px;letter-spacing:.08em;
-    transition:background .25s,color .25s;
-  }
-  .btn:hover{background:var(--gold);color:#12161B}
-  .btn + .btn{margin-left:14px;border-color:rgba(232,226,212,.3);color:var(--text)}
-  .btn + .btn:hover{background:var(--text);color:#12161B;border-color:var(--text)}
+  .nav{font-size:13.5px; color:var(--muted); display:flex; gap:20px;}
+  .nav a{border:none; color:var(--muted);}
+  .nav a:hover{color:var(--text);}
 
-  /* ===== Sections ===== */
-  section{padding:110px 0}
-  h2{
-    font-size:clamp(34px,4.5vw,52px);font-weight:500;
-    margin-bottom:14px;letter-spacing:-.005em;
+  /* ---------- hero ---------- */
+  .hero{padding:62px 0 54px; border-bottom:1px solid var(--line);}
+  .hero .grid{display:flex; align-items:center; gap:44px;}
+  .hero .copy{flex:1 1 auto; min-width:0;}
+  .kicker{
+    font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:16px;
   }
-  .section-intro{color:var(--muted);font-size:19px;max-width:560px;margin-bottom:64px}
+  h1{font-size:clamp(34px,6vw,50px); margin-bottom:16px;}
+  .lede{font-size:17.5px; color:#3F4652; margin:0; max-width:47ch;}
+  .hero .art{flex:0 0 190px;}
+  .hero .art svg{width:100%; height:auto; display:block;}
 
-  /* ===== Books ===== */
-  .book{
-    display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:center;
-    padding:56px 0;border-top:1px solid var(--line);
+  /* ---------- sections ---------- */
+  section{padding:52px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{font-size:22px; margin-bottom:8px;}
+  .sec-note{color:var(--muted); font-size:14.5px; margin:0 0 26px;}
+
+  .cols{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:20px 18px;
   }
-  .book:last-child{border-bottom:1px solid var(--line)}
-  .book:nth-child(even) .cover-col{order:2}
-  .cover-col{position:relative}
-  .cover{
-    width:100%;aspect-ratio:3/4;object-fit:cover;
-    box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
+  .card .ico{margin-bottom:12px;}
+  .card h3{font-size:15.5px; margin-bottom:6px;}
+  .card p{margin:0; font-size:13.8px; color:var(--muted); line-height:1.62;}
+
+  /* ---------- titles list ---------- */
+  .titles{list-style:none; margin:0; padding:0;}
+  .titles li{
+    display:flex; align-items:baseline; gap:14px;
+    padding:15px 0; border-bottom:1px dashed var(--line);
   }
-  .book .year{color:var(--gold);font-style:italic;font-size:18px;margin-bottom:10px}
-  .book h3{font-size:38px;font-weight:500;line-height:1.1;margin-bottom:18px}
-  .book .blurb{color:#CFC8B8;font-size:19px;margin-bottom:26px;max-width:520px}
-  .book .meta{color:var(--muted);font-size:16px;font-style:italic;margin-bottom:26px}
-
-  /* ===== About ===== */
-  .about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:center}
-  .about-photo{aspect-ratio:4/3;object-fit:cover;filter:grayscale(.15)}
-  .about p{font-size:19px;color:#D8D2C2;margin-bottom:18px}
-  .about p:first-of-type{font-size:22px;color:var(--text)}
-
-  /* ===== Contact ===== */
-  .contact{text-align:center;padding:120px 0}
-  .contact h2{margin-bottom:18px}
-  .contact p{color:var(--muted);max-width:520px;margin:0 auto 36px}
-  .mail-link{color:var(--gold);border-bottom:1px solid var(--gold-soft);padding-bottom:3px}
-  .mail-link:hover{border-bottom-color:var(--gold)}
-
-  /* ===== Footer ===== */
-  footer{
-    border-top:1px solid var(--line);
-    padding:36px 0;color:var(--muted);font-size:15px;
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  .titles li:last-child{border-bottom:none;}
+  .titles .t{flex:1 1 auto; font-size:15.5px;}
+  .titles .t small{display:block; color:var(--muted); font-size:13px; margin-top:3px;}
+  .tag{
+    flex:0 0 auto; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    padding:4px 10px; border-radius:999px; white-space:nowrap;
   }
-  footer a{color:var(--muted)}
-  footer a:hover{color:var(--gold)}
+  .tag.wip{background:var(--accent-soft); color:var(--accent);}
+  .tag.plan{background:#F1F2F4; color:#5B6270;}
 
-  /* ===== Responsive ===== */
-  @media (max-width:820px){
-    .nav-links{display:none}
-    .hero-content{padding-bottom:70px}
-    .book{grid-template-columns:140px 1fr;gap:24px;padding:44px 0;align-items:start}
-    .book .cover-col{order:0 !important;max-width:none}
-    .book h3{font-size:26px;margin-bottom:10px}
-    .book .blurb{font-size:16px;margin-bottom:14px}
-    .about-grid{grid-template-columns:1fr;gap:36px}
-    section{padding:72px 0}
-    body{font-size:17px}
+  /* ---------- sample pages ---------- */
+  .samples{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .samples figure{margin:0;}
+  .samples img{
+    width:100%; height:auto; display:block;
+    border:1px solid var(--line); border-radius:10px; background:#fff;
+  }
+  .samples figcaption{font-size:12.4px; color:var(--muted); margin-top:8px; line-height:1.5;}
+
+  /* ---------- about ---------- */
+  .about p{margin:0 0 14px; font-size:15.5px; color:#3F4652; max-width:62ch;}
+  .about p:last-child{margin-bottom:0;}
+
+  /* ---------- contact ---------- */
+  .contact-box{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:24px 22px;
+  }
+  .contact-box .row{display:flex; gap:12px; align-items:baseline; flex-wrap:wrap; margin-bottom:12px;}
+  .contact-box .row:last-child{margin-bottom:0;}
+  .contact-box .k{
+    flex:0 0 132px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); padding-top:3px;
+  }
+  .contact-box .v{flex:1 1 240px; font-size:15px;}
+  .mailto{font-size:17px; font-weight:600;}
+
+  footer{padding:34px 0 54px; color:var(--muted); font-size:13px;}
+  footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+
+  @media (max-width:640px){
+    .hero{padding:44px 0 40px;}
+    .hero .grid{flex-direction:column-reverse; align-items:flex-start; gap:26px;}
+    .hero .art{flex:0 0 auto; width:130px;}
+    .cols{grid-template-columns:1fr;}
+    .samples{grid-template-columns:repeat(2,1fr); gap:14px;}
+    section{padding:40px 0;}
+    .nav{display:none;}
+    .contact-box .k{flex-basis:100%;}
   }
 </style>
 </head>
 <body>
 
-<!-- ===== 导航 ===== -->
-<nav>
-  <div class="wrap nav-inner">
-    <a href="#top" class="brand">Danny<em>Wang</em></a>
-    <!-- TODO: 导航锚点保持与下方 id 一致 -->
-    <div class="nav-links">
-      <a href="#books">Books</a>
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <span class="mark">J</span>
+      <span>Junwei Wang</span>
+    </div>
+    <nav class="nav">
+      <a href="#work">What I do</a>
+      <a href="#samples">Samples</a>
+      <a href="#titles">Titles</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<!-- ===== Hero ===== -->
-<header class="hero" id="top">
-  <div class="hero-bg"></div>
-  <div class="hero-shade"></div>
-  <div class="wrap hero-content">
-    <!-- TODO: 替换为你的笔名与一句话定位 -->
-    <div class="kicker">Novelist · Essayist</div>
-    <h1>Danny Wang</h1>
-    <p>Stories written in the small hours. Quiet books for readers who like the long pause before the sentence ends.</p>
-    <a href="#books" class="btn">Explore the books</a>
-    <!-- TODO: 替换为你的 Amazon 作者页 URL -->
-    <a href="https://www.amazon.com/stores/author/B000000000" class="btn">Amazon Author Page</a>
+    </nav>
   </div>
 </header>
 
-<!-- ===== Books ===== -->
-<section id="books">
+<div class="wrap hero">
+  <div class="grid">
+    <div class="copy">
+      <div class="kicker">Independent Publisher</div>
+      <h1>Junwei Wang</h1>
+      <p class="lede">
+        I create and publish illustration-led coloring books and activity books —
+        designed for adults and seniors who want something relaxing, clear and easy to use.
+        The first titles are released through Amazon in late 2026.
+      </p>
+    </div>
+    <div class="art" aria-hidden="true">
+      <!-- bold line-art motif: the visual language of the books themselves -->
+      <svg viewBox="0 0 200 200" fill="none" stroke="#1F2937" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="100" cy="70" r="12"/>
+        <ellipse cx="100" cy="43" rx="13" ry="18"/>
+        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(60 100 70)"/>
+        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(120 100 70)"/>
+        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(180 100 70)"/>
+        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(240 100 70)"/>
+        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(300 100 70)"/>
+        <path d="M100 88 L100 178"/>
+        <path d="M100 132 C 74 126 62 110 62 98 C 82 98 96 112 100 132 Z"/>
+        <path d="M100 152 C 126 146 138 130 138 118 C 118 118 104 132 100 152 Z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<section id="work">
   <div class="wrap">
-    <h2>The Books</h2>
-    <p class="section-intro">Three books, one quiet room. Each was written late, revised slowly, and sent out into the world against my better judgment.</p>
-
-    <!-- Book 1 -->
-    <!-- TODO: 替换书名、年份、简介、Amazon 购买链接；封面换成 assets/ 下你的真封面 -->
-    <article class="book">
-      <div class="cover-col"><img class="cover" src="assets/book1.jpg" alt="The Cartography of Silence book cover"></div>
-      <div>
-        <div class="year">2024</div>
-        <h3>The Cartography of Silence</h3>
-        <p class="blurb">A widow returns to the coastal village she fled twenty years ago and finds the house she grew up in occupied by a stranger who knows her name. A novel about the maps we redraw over the places we left.</p>
-        <p class="meta">Novel · 288 pages · Kindle & paperback</p>
-        <a class="btn" href="https://www.amazon.com/s?k=The+Cartography+of+Silence" target="_blank" rel="noopener">Buy on Amazon</a>
+    <h2>What I do</h2>
+    <p class="sec-note">A small, focused publishing operation — from first sketch to a book on a shelf.</p>
+    <div class="cols">
+      <div class="card">
+        <div class="ico" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
+          </svg>
+        </div>
+        <h3>Original illustration</h3>
+        <p>Every page is drawn in-house — clean bold outlines, single-sided layouts, no bleed-through.</p>
       </div>
-    </article>
-
-    <!-- Book 2 -->
-    <article class="book">
-      <div class="cover-col"><img class="cover" src="assets/book2.jpg" alt="Northern Lights Over the Grid book cover"></div>
-      <div>
-        <div class="year">2023</div>
-        <h3>Northern Lights Over the Grid</h3>
-        <p class="blurb">A network engineer takes a contract at a research station above the Arctic Circle, only to discover the signal she was hired to trace isn't electrical at all. Part ghost story, part love letter to the machines that keep us waiting.</p>
-        <p class="meta">Novella · 164 pages · Kindle & paperback</p>
-        <a class="btn" href="https://www.amazon.com/s?k=Northern+Lights+Over+the+Grid" target="_blank" rel="noopener">Buy on Amazon</a>
+      <div class="card">
+        <div class="ico" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+          </svg>
+        </div>
+        <h3>Print-on-demand publishing</h3>
+        <p>Titles are printed and shipped locally by the retailer, so every copy is produced close to the reader.</p>
       </div>
-    </article>
-
-    <!-- Book 3 -->
-    <article class="book">
-      <div class="cover-col"><img class="cover" src="assets/book3.jpg" alt="A Field Guide to Small Rooms book cover"></div>
-      <div>
-        <div class="year">2022</div>
-        <h3>A Field Guide to Small Rooms</h3>
-        <p class="blurb">Essays on the rooms that shaped me: a childhood bedroom, a hospital waiting room, a rented study with a desk too small for two hands. About how the spaces we pass through become the people we are.</p>
-        <p class="meta">Essays · 212 pages · Kindle & paperback</p>
-        <a class="btn" href="https://www.amazon.com/s?k=A+Field+Guide+to+Small+Rooms" target="_blank" rel="noopener">Buy on Amazon</a>
+      <div class="card">
+        <div class="ico" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <h3>Global distribution</h3>
+        <p>Available on Amazon marketplaces in North America, Europe and Japan as titles are released.</p>
       </div>
-    </article>
+    </div>
   </div>
 </section>
 
-<!-- ===== About ===== -->
+<section id="samples">
+  <div class="wrap">
+    <h2>Sample pages</h2>
+    <p class="sec-note">Four finished interior pages from the first book, now in production. Each page is drawn in-house, checked at 600 dpi before printing, and laid out single-sided so nothing shows through.</p>
+    <div class="samples">
+      <figure>
+        <img src="assets/sample-01.png" alt="Line-art coloring page showing a cat curled up asleep on a round cushion" width="420" height="540" loading="lazy">
+        <figcaption>A cat asleep on a cushion</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/sample-02.png" alt="Line-art coloring page showing a mushroom with a small snail beside it" width="416" height="540" loading="lazy">
+        <figcaption>Mushroom and a small snail</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/sample-03.png" alt="Line-art coloring page showing a round teapot with two cups" width="415" height="540" loading="lazy">
+        <figcaption>Teapot and two cups</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/sample-04.png" alt="Line-art coloring page showing a crescent moon and clouds" width="415" height="540" loading="lazy">
+        <figcaption>Crescent moon and clouds</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="titles">
+  <div class="wrap">
+    <h2>Forthcoming titles</h2>
+    <p class="sec-note">First season of releases. Format: 8.5 × 11 in paperback, bold &amp; easy line weight. Titles go live on Amazon from <strong>December 2026</strong>.</p>
+    <ul class="titles">
+      <li>
+        <span class="t">Cozy Hygge Bold &amp; Easy Coloring Book
+          <small>Warm everyday comforts — a mug of cocoa, knitted wool, a sleeping cat. Interior artwork complete.</small>
+        </span>
+        <span class="tag wip">In production</span>
+      </li>
+      <li>
+        <span class="t">Christmas Bold &amp; Easy Coloring Book
+          <small>Large-print festive scenes and ornaments for a calm winter evening.</small>
+        </span>
+        <span class="tag wip">In production</span>
+      </li>
+      <li>
+        <span class="t">East Asian Motifs Coloring Book
+          <small>Patterns inspired by traditional Chinese and Japanese ornament.</small>
+        </span>
+        <span class="tag plan">Planned</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <section id="about">
-  <div class="wrap about-grid">
-    <div><img class="about-photo" src="assets/author.jpg" alt="The author writing at a desk at night"></div>
-    <div class="about">
-      <!-- TODO: 替换为你的真实简介；这一段是占位 -->
-      <h2>About the author</h2>
-      <p>Danny Wang writes fiction and essays from a narrow room overlooking a city that never fully turns off the lights.</p>
-      <p>Before writing books, they spent a decade building software and staring at servers. That background taught them that every system has a quiet failure mode — and that the best stories are the ones that happen when the lights stay on but everyone else has gone home.</p>
-      <p>Their work has been shortlisted for small awards you've probably never heard of, which is exactly how they like it. They write slowly, read everything twice, and answer email on Sunday evenings.</p>
-    </div>
+  <div class="wrap about">
+    <h2>About</h2>
+    <p class="sec-note">Who is behind the books.</p>
+    <p>
+      Junwei Wang is an independent publisher based in Shanghai, China, working on illustrations
+      and print-ready book design. The studio focuses on the <em>bold &amp; easy</em> style of
+      coloring book — thick, confident lines and uncluttered pages — because it is the format
+      that works for the widest range of people, including those who find dense detail tiring.
+    </p>
+    <p>
+      Books are produced end to end by one person: concept, illustration, layout, cover and
+      publishing. The publisher writes and illustrates under the name <strong>Danny Wang</strong>.
+      The studio was established in 2026 and sells under its own imprint, with sales running
+      through Amazon. This page is its official online home.
+    </p>
   </div>
 </section>
 
-<!-- ===== Contact ===== -->
-<section class="contact" id="contact">
+<section id="contact">
   <div class="wrap">
-    <h2>Letters, not newsletters</h2>
-    <p>No mailing list, no funnels. If a book meant something to you, or you simply want to say hello, write a real letter.</p>
-    <!-- TODO: 替换为你的真实邮箱 -->
-    <a class="mail-link" href="mailto:dannywjw@qq.com">dannywjw@qq.com</a>
+    <h2>Contact</h2>
+    <p class="sec-note">For publishing, licensing or wholesale enquiries.</p>
+    <div class="contact-box">
+      <div class="row">
+        <span class="k">Publisher</span>
+        <span class="v">Junwei Wang</span>
+      </div>
+      <div class="row">
+        <span class="k">Based in</span>
+        <span class="v">Shanghai, China</span>
+      </div>
+      <div class="row">
+        <span class="k">Email</span>
+        <span class="v"><a class="mailto" href="mailto:dannywjw@qq.com">dannywjw@qq.com</a></span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== Footer ===== -->
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px">
-    <div>© 2026 Danny Wang. All rights reserved.</div>
-    <div>
-      <a href="https://www.amazon.com/stores/author/B000000000" target="_blank" rel="noopener">Amazon</a>
-      &nbsp;·&nbsp;
-      <a href="#top">Back to top</a>
-    </div>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Junwei Wang. All rights reserved.</span>
+    <span>Independent publisher · Shanghai, China</span>
   </div>
 </footer>
 
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
