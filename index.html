@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Junwei Wang — Independent Publisher</title>
-<meta name="description" content="Junwei Wang is an independent publisher working on illustration-led coloring books and activity books for adults and seniors, released through Amazon.">
-<meta name="author" content="Junwei Wang">
+<title>The Introvert's Cozy Survival Kit — Wren Studio</title>
+<meta name="description" content="The Introvert's Cozy Survival Kit is a bold & easy adult coloring book for anxious hearts — 70 single-sided pages by Wren Studio. Coming soon on Amazon.">
+<meta name="author" content="Wren Studio">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23C2410C' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23C2410C'/%3E%3C/svg%3E">
 <style>
   :root{
@@ -63,10 +63,20 @@
     font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
     color:var(--accent); margin-bottom:16px;
   }
-  h1{font-size:clamp(34px,6vw,50px); margin-bottom:16px;}
-  .lede{font-size:17.5px; color:#3F4652; margin:0; max-width:47ch;}
-  .hero .art{flex:0 0 190px;}
-  .hero .art svg{width:100%; height:auto; display:block;}
+  h1{font-size:clamp(32px,5.6vw,48px); margin-bottom:16px;}
+  .lede{font-size:17.5px; color:#3F4652; margin:0 0 18px; max-width:48ch;}
+  .hero .chips{display:flex; gap:10px; flex-wrap:wrap;}
+  .chip{
+    font-size:12.5px; color:var(--muted);
+    border:1px solid var(--line); background:var(--surface);
+    padding:5px 12px; border-radius:999px;
+  }
+  .hero .art{flex:0 0 200px;}
+  .hero .art img{
+    width:100%; height:auto; display:block;
+    border:1px solid var(--line); border-radius:10px; background:#fff;
+    box-shadow:0 18px 40px -22px rgba(22,24,29,.35);
+  }
 
   /* ---------- sections ---------- */
   section{padding:52px 0; border-bottom:1px solid var(--line);}
@@ -83,23 +93,7 @@
   .card h3{font-size:15.5px; margin-bottom:6px;}
   .card p{margin:0; font-size:13.8px; color:var(--muted); line-height:1.62;}
 
-  /* ---------- titles list ---------- */
-  .titles{list-style:none; margin:0; padding:0;}
-  .titles li{
-    display:flex; align-items:baseline; gap:14px;
-    padding:15px 0; border-bottom:1px dashed var(--line);
-  }
-  .titles li:last-child{border-bottom:none;}
-  .titles .t{flex:1 1 auto; font-size:15.5px;}
-  .titles .t small{display:block; color:var(--muted); font-size:13px; margin-top:3px;}
-  .tag{
-    flex:0 0 auto; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-    padding:4px 10px; border-radius:999px; white-space:nowrap;
-  }
-  .tag.wip{background:var(--accent-soft); color:var(--accent);}
-  .tag.plan{background:#F1F2F4; color:#5B6270;}
-
-  /* ---------- sample pages ---------- */
+  /* ---------- samples ---------- */
   .samples{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
   .samples figure{margin:0;}
   .samples img{
@@ -107,6 +101,30 @@
     border:1px solid var(--line); border-radius:10px; background:#fff;
   }
   .samples figcaption{font-size:12.4px; color:var(--muted); margin-top:8px; line-height:1.5;}
+
+  /* ---------- book detail ---------- */
+  .book-panel{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:28px 26px;
+  }
+  .book-panel .row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:10px;}
+  .book-panel .row:last-child{margin-bottom:0;}
+  .book-panel .k{
+    flex:0 0 110px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); padding-top:3px;
+  }
+  .book-panel .v{flex:1 1 260px; font-size:15px; color:#3F4652;}
+  .tag{
+    display:inline-block;
+    font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    padding:4px 10px; border-radius:999px;
+    background:var(--accent-soft); color:var(--accent);
+  }
+  .chapters{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;}
+  .chapters span{
+    font-size:12.5px; color:#3F4652; background:#F4F3EF;
+    padding:5px 11px; border-radius:999px;
+  }
 
   /* ---------- about ---------- */
   .about p{margin:0 0 14px; font-size:15.5px; color:#3F4652; max-width:62ch;}
@@ -132,12 +150,13 @@
   @media (max-width:640px){
     .hero{padding:44px 0 40px;}
     .hero .grid{flex-direction:column-reverse; align-items:flex-start; gap:26px;}
-    .hero .art{flex:0 0 auto; width:130px;}
+    .hero .art{flex:0 0 auto; width:160px;}
     .cols{grid-template-columns:1fr;}
     .samples{grid-template-columns:repeat(2,1fr); gap:14px;}
     section{padding:40px 0;}
     .nav{display:none;}
     .contact-box .k{flex-basis:100%;}
+    .book-panel .k{flex-basis:100%;}
   }
 </style>
 </head>
@@ -146,13 +165,14 @@
 <header>
   <div class="wrap bar">
     <div class="brand">
-      <span class="mark">J</span>
-      <span>Junwei Wang</span>
+      <span class="mark">W</span>
+      <span>Wren Studio</span>
     </div>
     <nav class="nav">
       <a href="#work">What I do</a>
+      <a href="#book">The book</a>
+      <a href="#samples">Sample pages</a>
       <a href="free-samples.html">Free samples</a>
-      <a href="#titles">Titles</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -162,28 +182,22 @@
 <div class="wrap hero">
   <div class="grid">
     <div class="copy">
-      <div class="kicker">Independent Publisher</div>
-      <h1>Junwei Wang</h1>
+      <div class="kicker">Adult Coloring Book · Coming Soon</div>
+      <h1>The Introvert's Cozy Survival Kit</h1>
       <p class="lede">
-        I publish illustration-led coloring books and activity books —
-        designed for adults and seniors who want something relaxing, clear and easy to use.
-        The first titles are being prepared for release through Amazon.
+        A bold &amp; easy coloring book for anxious hearts. Seventy single-sided pages that walk
+        one shy girl from the moment her hand reaches the door handle, all the way home to her
+        couch, her cat, and a quiet evening.
       </p>
+      <div class="chips">
+        <span class="chip">70 coloring pages</span>
+        <span class="chip">8.5 × 11 in paperback</span>
+        <span class="chip">Single-sided, no bleed-through</span>
+        <span class="chip">Bold &amp; easy line weight</span>
+      </div>
     </div>
     <div class="art" aria-hidden="true">
-      <!-- bold line-art motif: the visual language of the books themselves -->
-      <svg viewBox="0 0 200 200" fill="none" stroke="#1F2937" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="100" cy="70" r="12"/>
-        <ellipse cx="100" cy="43" rx="13" ry="18"/>
-        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(60 100 70)"/>
-        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(120 100 70)"/>
-        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(180 100 70)"/>
-        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(240 100 70)"/>
-        <ellipse cx="100" cy="43" rx="13" ry="18" transform="rotate(300 100 70)"/>
-        <path d="M100 88 L100 178"/>
-        <path d="M100 132 C 74 126 62 110 62 98 C 82 98 96 112 100 132 Z"/>
-        <path d="M100 152 C 126 146 138 130 138 118 C 118 118 104 132 100 152 Z"/>
-      </svg>
+      <img src="assets/cover.png" alt="Cover of The Introvert's Cozy Survival Kit — a girl in an armchair with headphones and a warm mug">
     </div>
   </div>
 </div>
@@ -224,58 +238,67 @@
   </div>
 </section>
 
-<section id="samples">
+<section id="book">
   <div class="wrap">
-    <h2>Sample pages</h2>
-    <p class="sec-note">Four finished interior pages from <strong>Cozy Winter</strong>, the first book in the set. Each page is prepared at print resolution for an 8.5 × 11 in book, with bold outlines and a single-sided layout so nothing shows through.</p>
-    <div class="samples">
-      <figure>
-        <img src="assets/sample-01.png" alt="Line-art coloring page showing a cat curled up asleep on a round cushion" width="420" height="540" loading="lazy">
-        <figcaption>A cat asleep on a cushion</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/sample-02.png" alt="Line-art coloring page showing a mushroom with a small snail beside it" width="416" height="540" loading="lazy">
-        <figcaption>Mushroom and a small snail</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/sample-03.png" alt="Line-art coloring page showing a round teapot with two cups" width="415" height="540" loading="lazy">
-        <figcaption>Teapot and two cups</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/sample-04.png" alt="Line-art coloring page showing a crescent moon and clouds" width="415" height="540" loading="lazy">
-        <figcaption>Crescent moon and clouds</figcaption>
-      </figure>
+    <h2>The book</h2>
+    <p class="sec-note">One title, made end to end. Here is what is inside.</p>
+    <div class="book-panel">
+      <div class="row">
+        <span class="k">Title</span>
+        <span class="v"><strong>The Introvert's Cozy Survival Kit</strong><br>
+        <em style="color:var(--muted);font-size:14px;">Bold &amp; Easy Coloring Pages for Anxious Hearts</em></span>
+      </div>
+      <div class="row">
+        <span class="k">Inside</span>
+        <span class="v">70 coloring pages across five chapters — 35 character scenes, 26 "survival kit" object pages, and 9 quiet partial-figure moments. Every page is single-sided so markers never show through.</span>
+      </div>
+      <div class="row">
+        <span class="k">Chapters</span>
+        <span class="v"><div class="chapters">
+          <span>Pre-Exit Prep</span>
+          <span>Public Space Survival</span>
+          <span>Social Encounters</span>
+          <span>Work &amp; School</span>
+          <span>Recovery &amp; Safe Space</span>
+        </div></span>
+      </div>
+      <div class="row">
+        <span class="k">Format</span>
+        <span class="v">8.5 × 11 in paperback · 160 interior pages · pure black &amp; white line art</span>
+      </div>
+      <div class="row">
+        <span class="k">Status</span>
+        <span class="v"><span class="tag">In production</span> &nbsp; Interior and cover are being finished. Amazon links will go up here once the book is live.</span>
+      </div>
     </div>
-    <p class="sec-note" style="margin:22px 0 0;">
-      <a href="free-samples.html">Nine more sample pages across the three titles — free to print →</a>
-    </p>
   </div>
 </section>
 
-<section id="titles">
+<section id="samples">
   <div class="wrap">
-    <h2>Forthcoming titles</h2>
-    <p class="sec-note">First season of releases — three volumes. Format: 8.5 × 11 in paperback, bold &amp; easy line weight, single-sided pages. Interiors and covers are complete; titles go live on Amazon from <strong>late 2026</strong>.</p>
-    <ul class="titles">
-      <li>
-        <span class="t">Cozy Winter — Bold &amp; Easy Coloring Book
-          <small>Warm everyday comforts — a mug of cocoa, knitted wool, a sleeping cat. Interior and cover complete.</small>
-        </span>
-        <span class="tag wip">In production</span>
-      </li>
-      <li>
-        <span class="t">Cute Animals — Bold &amp; Easy Coloring Book
-          <small>Large-print animal pages with thick, forgiving outlines.</small>
-        </span>
-        <span class="tag wip">In production</span>
-      </li>
-      <li>
-        <span class="t">Merry Christmas — Bold &amp; Easy Coloring Book
-          <small>Festive scenes and ornaments for a calm winter evening.</small>
-        </span>
-        <span class="tag wip">In production</span>
-      </li>
-    </ul>
+    <h2>Sample pages</h2>
+    <p class="sec-note">Three finished interior pages from the book — a survival-kit object, an everyday nervous moment, and the warm final page. Each is prepared at print resolution for an 8.5 × 11 in book, with bold outlines and a single-sided layout so nothing shows through.</p>
+    <div class="samples">
+      <figure>
+        <img src="assets/sample-01.png" alt="Line-art coloring page showing over-ear noise-cancelling headphones with a padlock badge" width="420" height="540" loading="lazy">
+        <figcaption>Noise-cancelling on (Ch. 1 opener)</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/sample-02.png" alt="Line-art coloring page showing a girl with headphones around her neck pausing at the door handle" width="420" height="540" loading="lazy">
+        <figcaption>Deep breath before the door (Ch. 1)</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/sample-03.png" alt="Line-art coloring page showing the same girl in front of a mirror making a heart shape with her hands" width="420" height="540" loading="lazy">
+        <figcaption>You did it (final page, Ch. 5)</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/cover.png" alt="Front cover of The Introvert's Cozy Survival Kit" width="420" height="540" loading="lazy">
+        <figcaption>Front cover</figcaption>
+      </figure>
+    </div>
+    <p class="sec-note" style="margin:22px 0 0;">
+      <a href="free-samples.html">Printable sample pages — free to take home →</a>
+    </p>
   </div>
 </section>
 
@@ -284,15 +307,16 @@
     <h2>About</h2>
     <p class="sec-note">Who is behind the books.</p>
     <p>
-      Junwei Wang is an independent publisher based in Shanghai, China, working on line-art
+      Wren Studio is a one-person publishing studio based in Shanghai, China, working on line-art
       and print-ready book design. The studio focuses on the <em>bold &amp; easy</em> style of
       coloring book — thick, confident lines and uncluttered pages — because it is the format
       that works for the widest range of people, including those who find dense detail tiring.
     </p>
     <p>
-      Books are produced end to end by one person: concept, design, layout, cover and
-      publishing. Titles are published under the name <em>Danny Wang</em>. The studio was
-      established in 2026, and this page is its official online home.
+      Books are produced end to end by one person: concept, character design, layout, cover and
+      publishing. The first title, <em>The Introvert's Cozy Survival Kit</em>, was started in
+      2026 as a love letter to anyone who has ever paused at the door, and this page is its
+      official online home.
     </p>
   </div>
 </section>
@@ -303,8 +327,8 @@
     <p class="sec-note">For publishing, licensing or wholesale enquiries.</p>
     <div class="contact-box">
       <div class="row">
-        <span class="k">Publisher</span>
-        <span class="v">Junwei Wang</span>
+        <span class="k">Studio</span>
+        <span class="v">Wren Studio</span>
       </div>
       <div class="row">
         <span class="k">Based in</span>
@@ -320,7 +344,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Junwei Wang · Site content all rights reserved.</span>
+    <span>© <span id="yr">2026</span> Wren Studio · Site content all rights reserved.</span>
     <span>Independent publisher · Shanghai, China</span>
   </div>
 </footer>
